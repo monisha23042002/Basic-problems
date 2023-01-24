@@ -1,0 +1,64 @@
+//Given a list of integers of length N.Find the length of largest strictly increasing contiguous sub array given that atmost 1 element from the list can be deleted.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    int i=0;
+    for(int j=1;j<n;j++){
+        if(arr[j]<arr[j-1]){
+            i=1;
+        }
+    }
+    if(i==0){
+        printf("%d",n);
+    
+    }
+    int p=0;
+    for(int j=0;j<n;j++){
+        int m=0;
+        if(j==0){
+            m+=1;
+        }
+        int r=arr[m];
+        m+=1;
+        int x=0;
+        while(m<n){
+            if(m!=j){
+                if(arr[m]<r){
+                    x=1;
+                    break;
+                }
+                r=arr[m];
+                m+=1;
+            }
+            else{
+                m+=1;
+            }
+    
+        }
+        if (x==0){
+            p=1;
+            break;
+        }
+    }
+    if (p==1){
+        printf("%d",n-1);
+    
+    }
+    else{
+        int o=1;
+        while(o<n){
+            if(arr[o]<arr[o-1]){
+                break;
+            }
+            o+=1;
+        }
+        printf("%d",o);
+    }
+}
