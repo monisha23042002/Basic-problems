@@ -1,0 +1,3 @@
+import pywhatkit
+import pyautogui as pg
+pywhatkit.sendwhatmsg('+91Mobile Number', 'Message to be sent', 14, 11,60)
