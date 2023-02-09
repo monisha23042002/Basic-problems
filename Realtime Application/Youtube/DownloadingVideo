@@ -1,0 +1,6 @@
+!pip install pytube
+from pytube import YouTube
+link=input("Enter input")
+video=YouTube(link)
+stream=video.streams.get_highest_resolution()
+stream.download()
